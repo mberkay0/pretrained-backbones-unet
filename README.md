@@ -76,8 +76,8 @@ optimizer = torch.optim.AdamW(params, 1e-4)
 trainer = Trainer(
     model,                    # UNet model with pretrained backbone
     criterion=DiceLoss(),     # loss function for model convergence
-    optimizer,                # optimizer for regularization
-    10                        # number of epochs for model training
+    optimizer=optimizer,      # optimizer for regularization
+    epochs=10                 # number of epochs for model training
 )
 
 trainer.fit(train_loader, val_loader)
